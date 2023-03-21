@@ -1,9 +1,9 @@
-import MouseOffsetObserver from './observers/mouseObserver/MouseOffsetObserver';
+import MouseOffsetObserver from './observers/mouseObservers/MouseOffsetObserver';
 import ConstructorCamera from './camera/ConstructorCamera';
-import MouseDownObserver from './observers/mouseObserver/MouseDownObserver';
-import MouseUpObserver from './observers/mouseObserver/MouseUpObserver';
-import KeyDownObserver from './observers/spaceObserver/KeyDownObserver';
-import KeyUpObserver from './observers/spaceObserver/KeyUpObserver';
+import MouseDownObserver from './observers/mouseObservers/MouseDownObserver';
+import MouseUpObserver from './observers/mouseObservers/MouseUpObserver';
+import KeyDownObserver from './observers/keyObservers/KeyDownObserver';
+import KeyUpObserver from './observers/keyObservers/KeyUpObserver';
 
 class Constructor {
 	private readonly containerElement: HTMLElement;

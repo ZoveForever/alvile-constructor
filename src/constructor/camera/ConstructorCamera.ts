@@ -1,10 +1,10 @@
 import ConstructorCanvas from './ConstructorCanvas';
-import MouseOffsetObserver from '../observers/mouseObserver/MouseOffsetObserver';
-import MouseDownObserver from '../observers/mouseObserver/MouseDownObserver';
-import MouseUpObserver from '../observers/mouseObserver/MouseUpObserver';
-import KeyDownObserver from '../observers/spaceObserver/KeyDownObserver';
-import KeyUpObserver  from '../observers/spaceObserver/KeyUpObserver';
-import spaceDownObserver from '../observers/spaceObserver/KeyDownObserver';
+import MouseOffsetObserver from '../observers/mouseObservers/MouseOffsetObserver';
+import MouseDownObserver from '../observers/mouseObservers/MouseDownObserver';
+import MouseUpObserver from '../observers/mouseObservers/MouseUpObserver';
+import KeyDownObserver from '../observers/keyObservers/KeyDownObserver';
+import KeyUpObserver  from '../observers/keyObservers/KeyUpObserver';
+import spaceDownObserver from '../observers/keyObservers/KeyDownObserver';
 
 interface ConstructorCameraProps {
 	mouseUpObserver: MouseUpObserver,
