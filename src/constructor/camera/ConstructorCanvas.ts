@@ -4,6 +4,8 @@ class ConstructorCanvas {
 	private readonly DEFAULT_CANVAS_WIDTH = 3840;
 	private readonly DEFAULT_CANVAS_HEIGHT = 2160;
 
+	private readonly BACKGROUND_VALUE = 'linear-gradient(#000, transparent 1px),linear-gradient(90deg, #000, transparent 1px)';
+
 	private readonly canvasElement: HTMLElement;
 
 	private positionX: number;
@@ -17,6 +19,9 @@ class ConstructorCanvas {
 		this.canvasElement.style.position = 'absolute';
 		this.canvasElement.style.width = `${this.DEFAULT_CANVAS_WIDTH}px`;
 		this.canvasElement.style.height = `${this.DEFAULT_CANVAS_HEIGHT}px`;
+		// this.canvasElement.style.background = this.BACKGROUND_VALUE;
+		// this.canvasElement.style.backgroundSize = '30px 30px';
+
 	}
 
 	public getPosition = (): DescartesPosition => ({
@@ -30,8 +35,10 @@ class ConstructorCanvas {
 		this.positionX = x;
 		this.positionY = y;
 
-		this.canvasElement.style.left = `-${this.DEFAULT_CANVAS_WIDTH / 2 - x}px`;
-		this.canvasElement.style.top = `-${this.DEFAULT_CANVAS_HEIGHT / 2 - y}px`;
+		this.canvasElement.style.left = `${this.DEFAULT_CANVAS_WIDTH / 2 - x}px`;
+		this.canvasElement.style.top = `${this.DEFAULT_CANVAS_HEIGHT / 2 - y}px`;
+
+
 	};
 
 	public getElement = (): HTMLElement => this.canvasElement;
