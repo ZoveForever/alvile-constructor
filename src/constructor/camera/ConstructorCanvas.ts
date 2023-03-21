@@ -21,6 +21,7 @@ class ConstructorCanvas {
 		this.canvasElement.style.height = `${this.DEFAULT_CANVAS_HEIGHT}px`;
 		// this.canvasElement.style.background = this.BACKGROUND_VALUE;
 		// this.canvasElement.style.backgroundSize = '30px 30px';
+		// this.canvasElement.style.cursor
 
 	}
 
@@ -38,7 +39,10 @@ class ConstructorCanvas {
 		this.canvasElement.style.left = `${this.DEFAULT_CANVAS_WIDTH / 2 - x}px`;
 		this.canvasElement.style.top = `${this.DEFAULT_CANVAS_HEIGHT / 2 - y}px`;
 
+	};
 
+	public setCursor = (value: string) => {
+		this.canvasElement.style.cursor = value;
 	};
 
 	public getElement = (): HTMLElement => this.canvasElement;

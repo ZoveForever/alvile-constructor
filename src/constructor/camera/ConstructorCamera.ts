@@ -4,7 +4,6 @@ import MouseDownObserver from '../observers/mouseObservers/MouseDownObserver';
 import MouseUpObserver from '../observers/mouseObservers/MouseUpObserver';
 import KeyDownObserver from '../observers/keyObservers/KeyDownObserver';
 import KeyUpObserver  from '../observers/keyObservers/KeyUpObserver';
-import spaceDownObserver from '../observers/keyObservers/KeyDownObserver';
 
 interface ConstructorCameraProps {
 	mouseUpObserver: MouseUpObserver,
@@ -37,7 +36,7 @@ class ConstructorCamera {
 	};
 
 	public disableMove = () => {
-		if (!this.spacePress) { this.isMove = false; }
+		this.isMove = false;
 	};
 
 	public getCanvasElement = (): HTMLElement => this.canvas.getElement();
@@ -63,11 +62,16 @@ class ConstructorCamera {
 	};
 
 	private onKeyDown = (ev: KeyboardEvent) => {
-		if (ev.key === ' ') { this.spacePress = true; }
+		if (ev.key === ' ') {
+			this.spacePress = true;
+		}
 	};
 
 	private onKeyUp = (ev: KeyboardEvent) => {
-		if (ev.key === ' ') { this.spacePress = false; }
+		if (ev.key === ' ') {
+			this.spacePress = false;
+			this.isMove = false;
+		}
 	};
 }
 
