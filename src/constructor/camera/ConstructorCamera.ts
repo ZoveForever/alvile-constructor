@@ -64,6 +64,8 @@ class ConstructorCamera {
 	private onKeyDown = (ev: KeyboardEvent) => {
 		if (ev.key === ' ') {
 			this.spacePress = true;
+			this.canvas.setCursor('move');
+			this.canvas.stopScroll();
 		}
 	};
 

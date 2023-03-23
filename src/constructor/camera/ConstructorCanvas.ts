@@ -19,9 +19,10 @@ class ConstructorCanvas {
 		this.canvasElement.style.position = 'absolute';
 		this.canvasElement.style.width = `${this.DEFAULT_CANVAS_WIDTH}px`;
 		this.canvasElement.style.height = `${this.DEFAULT_CANVAS_HEIGHT}px`;
-		// this.canvasElement.style.background = this.BACKGROUND_VALUE;
-		// this.canvasElement.style.backgroundSize = '30px 30px';
-		// this.canvasElement.style.cursor
+		this.canvasElement.style.background = this.BACKGROUND_VALUE;
+		this.canvasElement.style.backgroundSize = '30px 30px';
+		this.canvasElement.style.backgroundImage = 'url(src/utils/testbackground.eps)';
+
 
 	}
 
@@ -42,7 +43,15 @@ class ConstructorCanvas {
 	};
 
 	public setCursor = (value: string) => {
-		this.canvasElement.style.cursor = value;
+		document.body.style.cursor = value;
+	};
+
+	public stopScroll = (): void => {
+		document.addEventListener('keydown', this.scroll);
+	};
+
+	private scroll = (ev: KeyboardEvent) => {
+		if (ev.key === ' ' && ev.target === document.body) { ev.preventDefault(); }
 	};
 
 	public getElement = (): HTMLElement => this.canvasElement;
