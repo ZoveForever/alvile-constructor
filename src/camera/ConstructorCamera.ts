@@ -66,6 +66,7 @@ class ConstructorCamera {
 			this.spacePress = true;
 			this.canvas.setCursor('move');
 			this.canvas.stopScroll();
+			ev.preventDefault();
 		}
 	};
 

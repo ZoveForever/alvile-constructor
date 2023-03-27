@@ -21,9 +21,6 @@ class ConstructorCanvas {
 		this.canvasElement.style.height = `${this.DEFAULT_CANVAS_HEIGHT}px`;
 		this.canvasElement.style.background = this.BACKGROUND_VALUE;
 		this.canvasElement.style.backgroundSize = '30px 30px';
-		this.canvasElement.style.backgroundImage = 'url(src/utils/testbackground.eps)';
-
-
 	}
 
 	public getPosition = (): DescartesPosition => ({
