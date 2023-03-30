@@ -72,6 +72,7 @@ class ConstructorCamera {
 
 	private onKeyUp = (ev: KeyboardEvent) => {
 		if (ev.key === ' ') {
+			this.canvas.setCursor('default');
 			this.spacePress = false;
 			this.isMove = false;
 		}
