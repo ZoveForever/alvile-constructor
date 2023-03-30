@@ -18,11 +18,13 @@ class ConstructorCamera {
 
 	private isMove: boolean;
 	private spacePress: boolean;
+	private mousePress: boolean;
 
 	constructor(props: ConstructorCameraProps) {
 		this.canvas = new ConstructorCanvas();
 		this.isMove = false;
 		this.spacePress = false;
+		this.mousePress = false;
 
 		props.spaceDownObserver.subscribe(this.onKeyDown);
 		props.spaceUpObserver.subscribe(this.onKeyUp);
@@ -32,7 +34,7 @@ class ConstructorCamera {
 	}
 
 	public enableMove = () => {
-		if (this.spacePress) { this.isMove = true; }
+		if (this.spacePress) { this.isMove = true;}
 	};
 
 	public disableMove = () => {
@@ -55,16 +57,19 @@ class ConstructorCamera {
 
 	private onMouseDown = () => {
 		this.enableMove();
+		this.mousePress = true;
+		if (this.spacePress) this.canvas.setCursor('grabbing');
 	};
 
 	private onMouseUp = () => {
 		this.disableMove();
+		this.mousePress = false;
 	};
 
 	private onKeyDown = (ev: KeyboardEvent) => {
 		if (ev.key === ' ') {
 			this.spacePress = true;
-			this.canvas.setCursor('move');
+			if (!this.mousePress) this.canvas.setCursor('grab');
 			this.canvas.stopScroll();
 			ev.preventDefault();
 		}

@@ -3,8 +3,8 @@ import DescartesPosition from '../utils/DescartesPosition';
 class ConstructorCanvas {
 	private readonly DEFAULT_CANVAS_WIDTH = 3840;
 	private readonly DEFAULT_CANVAS_HEIGHT = 2160;
-	private readonly DEFAULT_CANVAS_POSITION_X = 1920;
-	private readonly DEFAULT_CANVAS_POSITION_Y = 1080;
+	private readonly DEFAULT_CAMERA_POSITION_X = 1920;
+	private readonly DEFAULT_CAMERA_POSITION_Y = 1080;
 
 	private readonly BACKGROUND_VALUE = 'linear-gradient(#000, transparent 1px),linear-gradient(90deg, #000, transparent 1px)';
 
@@ -14,8 +14,8 @@ class ConstructorCanvas {
 	private positionY: number;
 
 	constructor() {
-		this.positionX = this.DEFAULT_CANVAS_POSITION_X;
-		this.positionY = this.DEFAULT_CANVAS_POSITION_Y;
+		this.positionX = this.DEFAULT_CAMERA_POSITION_X;
+		this.positionY = this.DEFAULT_CAMERA_POSITION_Y;
 
 		this.canvasElement = document.createElement('canvas');
 		this.canvasElement.style.position = 'absolute';
