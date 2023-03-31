@@ -58,7 +58,6 @@ class ConstructorCamera {
 	private onMouseDown = () => {
 		this.enableMove();
 		this.mousePress = true;
-		if (this.spacePress) this.canvas.setCursor('grabbing');
 	};
 
 	private onMouseUp = () => {
@@ -69,7 +68,6 @@ class ConstructorCamera {
 	private onKeyDown = (ev: KeyboardEvent) => {
 		if (ev.key === ' ') {
 			this.spacePress = true;
-			if (!this.mousePress) this.canvas.setCursor('grab');
 			this.canvas.stopScroll();
 			ev.preventDefault();
 		}
@@ -77,7 +75,6 @@ class ConstructorCamera {
 
 	private onKeyUp = (ev: KeyboardEvent) => {
 		if (ev.key === ' ') {
-			this.canvas.setCursor('default');
 			this.spacePress = false;
 			this.isMove = false;
 		}

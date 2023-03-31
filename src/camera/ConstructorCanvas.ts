@@ -41,9 +41,9 @@ class ConstructorCanvas {
 
 	};
 
-	public setCursor = (value: string) => {
-		document.body.style.cursor = value;
-	};
+	// public setCursor = (value: string) => {
+	// 	document.body.style.cursor = value;
+	// };
 
 	public stopScroll = (): void => {
 		document.addEventListener('keydown', this.scroll);

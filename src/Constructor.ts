@@ -4,6 +4,7 @@ import MouseDownObserver from './observers/mouseObservers/MouseDownObserver';
 import MouseUpObserver from './observers/mouseObservers/MouseUpObserver';
 import KeyDownObserver from './observers/keyObservers/KeyDownObserver';
 import KeyUpObserver from './observers/keyObservers/KeyUpObserver';
+import Cursor from './utils/Cursor';
 
 class Constructor {
 	private readonly containerElement: HTMLElement;
@@ -13,10 +14,12 @@ class Constructor {
 	private readonly spaceDownObserver: KeyDownObserver;
 	private readonly spaceUpObserver: KeyUpObserver;
 	private readonly camera: ConstructorCamera;
+	private readonly cursor: Cursor;
 
 	constructor(container: HTMLElement) {
 		// точка входа
 		this.containerElement = container;
+
 
 		this.mouseUpObserver = new MouseUpObserver();
 		this.mouseDownObserver = new MouseDownObserver();
@@ -28,6 +31,12 @@ class Constructor {
 			mouseUpObserver: this.mouseUpObserver,
 			mouseDownObserver: this.mouseDownObserver,
 			mouseOffsetObserver: this.mouseOffsetObserver,
+			spaceDownObserver: this.spaceDownObserver,
+			spaceUpObserver: this.spaceUpObserver,
+		});
+		this.cursor = new Cursor({
+			mouseUpObserver: this.mouseUpObserver,
+			mouseDownObserver: this.mouseDownObserver,
 			spaceDownObserver: this.spaceDownObserver,
 			spaceUpObserver: this.spaceUpObserver,
 		});
