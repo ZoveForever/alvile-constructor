@@ -6,6 +6,7 @@ class ConstructorCanvas {
 	private readonly DEFAULT_CAMERA_POSITION_X = 1920;
 	private readonly DEFAULT_CAMERA_POSITION_Y = 1080;
 
+
 	private readonly BACKGROUND_VALUE = 'linear-gradient(#000, transparent 1px),linear-gradient(90deg, #000, transparent 1px)';
 
 	private readonly canvasElement: HTMLElement;
@@ -19,8 +20,8 @@ class ConstructorCanvas {
 
 		this.canvasElement = document.createElement('canvas');
 		this.canvasElement.style.position = 'absolute';
-		this.canvasElement.style.width = `${this.DEFAULT_CANVAS_WIDTH}px`;
-		this.canvasElement.style.height = `${this.DEFAULT_CANVAS_HEIGHT}px`;
+		this.canvasElement.style.width = `${this.DEFAULT_CANVAS_WIDTH+window.innerWidth}px`;
+		this.canvasElement.style.height = `${this.DEFAULT_CANVAS_HEIGHT+window.innerHeight}px`;
 		this.canvasElement.style.background = this.BACKGROUND_VALUE;
 		this.canvasElement.style.backgroundSize = '30px 30px';
 	}
@@ -30,20 +31,22 @@ class ConstructorCanvas {
 		y: this.positionY,
 	});
 
+	public getCanvasWidth = (): number => {
+         return this.DEFAULT_CANVAS_WIDTH
+	};
+
+	public getCanvasHeight = (): number => {
+		return this.DEFAULT_CANVAS_HEIGHT
+	};
+
 	public setPosition = (position: DescartesPosition) => {
 		const { x, y } = position;
-
-		this.positionX = x;
+	    this.positionX = x;
 		this.positionY = y;
 
 		this.canvasElement.style.left = `${this.DEFAULT_CANVAS_WIDTH / 2 - x}px`;
 		this.canvasElement.style.top = `${this.DEFAULT_CANVAS_HEIGHT / 2 - y}px`;
-
 	};
-
-	// public setCursor = (value: string) => {
-	// 	document.body.style.cursor = value;
-	// };
 
 	public stopScroll = (): void => {
 		document.addEventListener('keydown', this.scroll);
