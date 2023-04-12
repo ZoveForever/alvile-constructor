@@ -1,4 +1,5 @@
 import DescartesPosition from '../utils/DescartesPosition';
+import ConstructorBackground from '../utils/ConstructorBackground';
 
 class ConstructorCanvas {
 	private readonly DEFAULT_CANVAS_WIDTH = 3840;
@@ -6,9 +7,7 @@ class ConstructorCanvas {
 	private readonly DEFAULT_CAMERA_POSITION_X = 1920;
 	private readonly DEFAULT_CAMERA_POSITION_Y = 1080;
 
-
-	private readonly BACKGROUND_VALUE = 'linear-gradient(#000, transparent 1px),linear-gradient(90deg, #000, transparent 1px)';
-
+	private readonly constructorBackground: ConstructorBackground;
 	private readonly canvasElement: HTMLElement;
 
 	private positionX: number;
@@ -18,12 +17,13 @@ class ConstructorCanvas {
 		this.positionX = this.DEFAULT_CAMERA_POSITION_X;
 		this.positionY = this.DEFAULT_CAMERA_POSITION_Y;
 
+		this.constructorBackground = new ConstructorBackground();
 		this.canvasElement = document.createElement('canvas');
 		this.canvasElement.style.position = 'absolute';
 		this.canvasElement.style.width = `${this.DEFAULT_CANVAS_WIDTH+window.innerWidth}px`;
 		this.canvasElement.style.height = `${this.DEFAULT_CANVAS_HEIGHT+window.innerHeight}px`;
-		this.canvasElement.style.background = this.BACKGROUND_VALUE;
-		this.canvasElement.style.backgroundSize = '30px 30px';
+		this.constructorBackground.setBackground(this.canvasElement)
+
 	}
 
 	public getPosition = (): DescartesPosition => ({
