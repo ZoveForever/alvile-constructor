@@ -8,13 +8,9 @@ interface MouseUpSubscriber {
 
 class MouseUpObserver {
 	private readonly subscribers: MouseUpSubscriber[];
-	private lastX: number | null;
-	private lastY: number | null;
 
 	constructor() {
 		this.subscribers = [];
-		this.lastX = null;
-		this.lastY = null;
 		document.addEventListener('mouseup', this.action);
 	}
 

@@ -8,13 +8,9 @@ interface MouseDownSubscriber {
 
 class MouseDownObserver {
 	private readonly subscribers: MouseDownSubscriber[];
-	private lastX: number | null;
-	private lastY: number | null;
 
 	constructor() {
 		this.subscribers = [];
-		this.lastX = null;
-		this.lastY = null;
 		document.addEventListener('mousedown', this.action);
 	}
 

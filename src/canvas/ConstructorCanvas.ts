@@ -1,5 +1,5 @@
 import DescartesPosition from '../utils/DescartesPosition';
-import ConstructorBackground from '../utils/ConstructorBackground';
+import ConstructorBackground from './ConstructorBackground';
 
 class ConstructorCanvas {
 	private readonly DEFAULT_CANVAS_WIDTH = 3840;
@@ -17,12 +17,13 @@ class ConstructorCanvas {
 		this.positionX = this.DEFAULT_CAMERA_POSITION_X;
 		this.positionY = this.DEFAULT_CAMERA_POSITION_Y;
 
-		this.constructorBackground = new ConstructorBackground();
+
 		this.canvasElement = document.createElement('canvas');
 		this.canvasElement.style.position = 'absolute';
 		this.canvasElement.style.width = `${this.DEFAULT_CANVAS_WIDTH+window.innerWidth}px`;
 		this.canvasElement.style.height = `${this.DEFAULT_CANVAS_HEIGHT+window.innerHeight}px`;
-		this.constructorBackground.setBackground(this.canvasElement)
+		this.constructorBackground = new ConstructorBackground(this.canvasElement);
+		this.constructorBackground.setBackground()
 
 	}
 

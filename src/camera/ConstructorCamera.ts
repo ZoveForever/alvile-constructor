@@ -1,4 +1,4 @@
-import ConstructorCanvas from './ConstructorCanvas';
+import ConstructorCanvas from '../canvas/ConstructorCanvas';
 import MouseOffsetObserver from '../observers/mouseObservers/MouseOffsetObserver';
 import MouseDownObserver from '../observers/mouseObservers/MouseDownObserver';
 import MouseUpObserver from '../observers/mouseObservers/MouseUpObserver';
@@ -15,7 +15,6 @@ interface ConstructorCameraProps {
 
 class ConstructorCamera {
 	private readonly canvas: ConstructorCanvas;
-
 	private isMove: boolean;
 	private spacePress: boolean;
 
@@ -31,6 +30,8 @@ class ConstructorCamera {
 		props.mouseUpObserver.subscribe(this.onMouseUp);
 		props.mouseDownObserver.subscribe(this.onMouseDown);
 		props.mouseOffsetObserver.subscribe(this.onMouseMove);
+		/todo Переделать как и onRightMouseDown/
+		props.mouseDownObserver.subscribe(this.onRightMouseDown);
 	}
 
 	public enableMove = () => {
@@ -63,6 +64,14 @@ class ConstructorCamera {
 
 	private onMouseUp = () => {
 		this.disableMove();
+	};
+
+	private onRightMouseDown = (ev: MouseEvent) => {
+		   const currentPosition = this.canvas.getPosition
+           if(ev.button === 2) {
+			   console.log(`Координата X: ${currentPosition().x} Коориданта Y: ${currentPosition().y}`);
+		   }
+
 	};
 
 	private onKeyDown = (ev: KeyboardEvent) => {
